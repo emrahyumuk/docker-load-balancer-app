@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+
+  web:
+    build:
+      context: ./web
+    ports:
+     - 80
+      
+  proxy:
+    build: 
+      context: ./proxy
+    restart: always
+    depends_on:
+      - web
+    ports:
+      - "7000:55000"
